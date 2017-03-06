@@ -80,6 +80,7 @@
 		text: "calculate for x" if self.never_selected == True else (" " if lol11.focused == True else self.text)
 		on_focus: self.never_selected = False
 		on_focus: self.choosen = True
+		on_focus: self.text = ""
 		
     TextInput:
 		id: lol11
@@ -91,10 +92,11 @@
 		text: "calculate for y" if self.never_selected == True else (" " if lol10.focused == True else self.text)
 		on_focus: self.never_selected = False 
 		on_focus: self.choosen = True
+		on_focus: self.text = ""
 	
 	Button:
 		id: lol12
-		text: "Calculate"
+		text: "Calculate for Y" if lol11.text else "Calculate fo X"
 		
 		halign: "left"
 		valign: "middle"
