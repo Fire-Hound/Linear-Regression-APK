@@ -1,109 +1,113 @@
-<Linear>:
-	Label:
-		text: "X"
-		font_size: 32
-	Label:
-		text: "Y"
-		font_size: 32
+
+
+<Scrol>:
+	GridLayout:
+		cols: 2
+		Label:
+			text: "X"
+			font_size: 32
+		Label:
+			text: "Y"
+			font_size: 32
+		
+		TextInput:
+			id: lol
+			multiline: False
+			padding: 0, (self.height - self.line_height)/2 
+
+			on_text: root.update_padding(lol,*args)
+
+		TextInput:
+			id: lol1
+			multiline: False
+			padding: 0, (self.height - self.line_height)/2 
+
+			on_text: root.update_padding(lol1,*args)
+		TextInput:
+			id: lol2
+			multiline: False
+			padding: 0, (self.height - self.line_height)/2 
+
+			on_text: root.update_padding(lol2,*args)
+
+		TextInput:
+			id: lol3
+			multiline: False
+			padding: 0, (self.height - self.line_height)/2 
+
+			on_text: root.update_padding(lol3,*args)
+
+		TextInput:
+			id: lol4
+			multiline: False
+			padding: 0, (self.height - self.line_height)/2 
+
+			on_text: root.update_padding(lol4,*args)
+
+		TextInput:
+			id: lol5
+			multiline: False
+			padding: 0, (self.height - self.line_height)/2 
+			on_text: root.update_padding(lol5,*args)
+
+		TextInput:
+			id: lol6
+			multiline: False
+			padding: 0, (self.height - self.line_height)/2 
+			on_text: root.update_padding(lol6,*args)
+
+		TextInput:
+			id: lol7
+			multiline: False
+			padding: 0, (self.height - self.line_height)/2 
+			on_text: root.update_padding(lol7,*args)
+
+		TextInput:
+			id: lol8
+			multiline: False
+			padding: 0, (self.height - self.line_height)/2 
+			on_text: root.update_padding(lol8,*args)
+
+		TextInput:
+			id: lol9
+			multiline: False
+			padding: 0, (self.height - self.line_height)/2 
+			on_text: root.update_padding(lol9,*args)
+
+		TextInput:
+			id: lol10
+			multiline: False
+			choosen: False
+			never_selected: True	
+			padding: 0, (self.height - self.line_height)/2 
+			on_text: root.update_padding(lol10,*args); lol11.choosen = False
+			text: "calculate for x" if self.never_selected == True else (" " if lol11.focused == True else self.text)
+			on_focus: self.never_selected = False
+			on_focus: self.choosen = True
+			on_focus: self.text = ""
+			
+	    TextInput:
+			id: lol11
+			multiline: False
+			choosen: False
+			never_selected: True
+			padding: 0, (self.height - self.line_height)/2 			
+			on_text: root.update_padding(lol11,*args); lol10.choosen = False
+			text: "calculate for y" if self.never_selected == True else (" " if lol10.focused == True else self.text)
+			on_focus: self.never_selected = False 
+			on_focus: self.choosen = True
+			on_focus: self.text = ""
+		
+		Button:
+			id: lol12
+			text: "Calculate for Y" if lol11.text else "Calculate fo X"
+			
+			halign: "left"
+			valign: "middle"
+			background_color: 1,0,.2,1
+			on_press: root.calculation()
+			
+
+		Label:
+			id: lol13
 	
-	TextInput:
-		id: lol
-		multiline: False
-		padding: 0, (self.height - self.line_height)/2 
-
-		on_text: root.update_padding(lol,*args)
-
-	TextInput:
-		id: lol1
-		multiline: False
-		padding: 0, (self.height - self.line_height)/2 
-
-		on_text: root.update_padding(lol1,*args)
-	TextInput:
-		id: lol2
-		multiline: False
-		padding: 0, (self.height - self.line_height)/2 
-
-		on_text: root.update_padding(lol2,*args)
-
-	TextInput:
-		id: lol3
-		multiline: False
-		padding: 0, (self.height - self.line_height)/2 
-
-		on_text: root.update_padding(lol3,*args)
-
-	TextInput:
-		id: lol4
-		multiline: False
-		padding: 0, (self.height - self.line_height)/2 
-
-		on_text: root.update_padding(lol4,*args)
-
-	TextInput:
-		id: lol5
-		multiline: False
-		padding: 0, (self.height - self.line_height)/2 
-		on_text: root.update_padding(lol5,*args)
-
-	TextInput:
-		id: lol6
-		multiline: False
-		padding: 0, (self.height - self.line_height)/2 
-		on_text: root.update_padding(lol6,*args)
-
-	TextInput:
-		id: lol7
-		multiline: False
-		padding: 0, (self.height - self.line_height)/2 
-		on_text: root.update_padding(lol7,*args)
-
-	TextInput:
-		id: lol8
-		multiline: False
-		padding: 0, (self.height - self.line_height)/2 
-		on_text: root.update_padding(lol8,*args)
-
-	TextInput:
-		id: lol9
-		multiline: False
-		padding: 0, (self.height - self.line_height)/2 
-		on_text: root.update_padding(lol9,*args)
-
-	TextInput:
-		id: lol10
-		multiline: False
-		choosen: False
-		never_selected: True	
-		padding: 0, (self.height - self.line_height)/2 
-		on_text: root.update_padding(lol10,*args); lol11.choosen = False
-		text: "calculate for x" if self.never_selected == True else (" " if lol11.focused == True else self.text)
-		on_focus: self.never_selected = False
-		on_focus: self.choosen = True
-		on_focus: self.text = ""
-		
-    TextInput:
-		id: lol11
-		multiline: False
-		choosen: False
-		never_selected: True
-		padding: 0, (self.height - self.line_height)/2 			
-		on_text: root.update_padding(lol11,*args); lol10.choosen = False
-		text: "calculate for y" if self.never_selected == True else (" " if lol10.focused == True else self.text)
-		on_focus: self.never_selected = False 
-		on_focus: self.choosen = True
-		on_focus: self.text = ""
-	
-	Button:
-		id: lol12
-		text: "Calculate for Y" if lol11.text else "Calculate fo X"
-		
-		halign: "left"
-		valign: "middle"
-		background_color: 1,0,.2,1
-		on_press: root.calculation()
-		
-
-	Label:
-		id: lol13
-		

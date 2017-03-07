@@ -2,12 +2,21 @@ from kivy.app import App
 from kivy.uix.textinput import TextInput 
 from kivy.uix.label import Label 
 from kivy.uix.gridlayout import GridLayout 
+from kivy.uix.scrollview import ScrollView
+from kivy.core.window import Window
+# class Scroll(ScrollView):
+# 	def __init__(self, **kwargs):
+# 		super(Scroll, self).__init__(**kwargs)
+# 		self.size_hint=(1, None)
+# 		self.size=(Window.width, Window.height)
 
-
-class Linear(GridLayout):
+class Scrol(ScrollView,GridLayout):
 	def __init__(self, **kwargs):
-		super(Linear, self).__init__(**kwargs)
+		super(Scrol, self).__init__(**kwargs)
 		self.cols = 2
+		
+		self.size_hint=(1, None)
+		self.size=(Window.width, Window.height)
 	def update_padding(self, text_input, *args):
 		text_width = text_input._get_text_width(text_input.text, text_input.tab_width, text_input._label_cached)
 		print(text_width, " ",text_input.width)
@@ -20,10 +29,10 @@ class Linear(GridLayout):
 	# 	print(self.ids["lol2"].text)
 
 	def calculation(self):
-		x = [float(self.children[i].text) for i in range(-3,-13,-2)]
-		y = [float(self.children[i].text) for i in range(-4,-14,-2)]
+		x = [float(self.children[0].children[i].text) for i in range(-3,-13,-2)]
+		y = [float(self.children[0].children[i].text) for i in range(-4,-14,-2)]
 		n = 5
-		print type(x)
+		
 		
 		sum_of_x = sum(x)
 		sum_of_y = sum(y)
@@ -33,7 +42,7 @@ class Linear(GridLayout):
 
 		sum_of_squared_x = sum(squared_x)
 		sum_of_squared_y = sum(squared_y)
-		print type(x)
+		
 
 		x_mul_y = [x[a]*y[a] for a in range(5)]
 		
@@ -57,10 +66,12 @@ class Linear(GridLayout):
 			X = (bxy*Y) + (bxy*y_bar) - x_bar
 			self.ids["lol13"].text = "bxy = " + str(bxy) + "\n" + "X = " + str(X)
 	
+		
 
 class LinearApp(App):
 	def build(self):
-		return Linear()
+
+		return Scrol()
 
 if __name__=="__main__":
 	LinearApp().run()
